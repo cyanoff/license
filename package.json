@@ -1,0 +1,26 @@
+{
+  "name": "cyanoff-license-monorepo",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "workspaces": [
+    "packages/license",
+    "packages/license-react",
+    "packages/license-cli"
+  ],
+  "scripts": {
+    "build": "npm run build -w @cyanoff/license && npm run build -w @cyanoff/license-react && npm run build -w @cyanoff/license-cli",
+    "test": "npm run build && vitest run",
+    "typecheck": "tsc -p packages/license && tsc -p packages/license-react --noEmit && tsc -p packages/license-cli --noEmit"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.0.0",
+    "@types/node": "^20.0.0",
+    "@types/react": "^19.0.0",
+    "jsdom": "^25.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.6.0",
+    "vitest": "^2.1.0"
+  }
+}
