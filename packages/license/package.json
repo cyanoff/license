@@ -1,0 +1,18 @@
+{
+  "name": "@cyanoff/license",
+  "version": "0.1.0",
+  "description": "Offline, signature-based license keys for JavaScript products. Zero dependencies; runs in browsers and Node 20+ via WebCrypto.",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+    "./issuer": { "types": "./dist/issuer.d.ts", "default": "./dist/issuer.js" }
+  },
+  "files": ["dist", "README.md"],
+  "sideEffects": false,
+  "engines": { "node": ">=20" },
+  "keywords": ["license", "license-key", "ecdsa", "webcrypto", "offline"],
+  "scripts": { "build": "tsc -p ." }
+}
