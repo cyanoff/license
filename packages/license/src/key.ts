@@ -23,8 +23,11 @@ export function parseKey(key: string): ParsedKey | null {
   if (dot <= 0 || dot !== body.lastIndexOf('.')) return null
   const payloadB64 = body.slice(0, dot)
   try {
-    const signature = base64UrlToBytes(body.slice(dot + 1))
-    base64UrlToBytes(payloadB64)
+    const sigB64 = body.slice(dot + 1)
+    const signature = base64UrlToBytes(sigB64)
+    // reject non-canonical encodings so one license has exactly one textual form
+    if (bytesToBase64Url(signature) !== sigB64) return null
+    if (bytesToBase64Url(base64UrlToBytes(payloadB64)) !== payloadB64) return null
     return { prefix, signedPart: `${prefix}/${payloadB64}`, payloadB64, signature }
   } catch {
     return null
