@@ -1,0 +1,14 @@
+{
+  "name": "@cyanoff/license-cli",
+  "version": "0.1.0",
+  "description": "Generate signing keys and issue/verify @cyanoff/license keys from the terminal.",
+  "license": "MIT",
+  "type": "module",
+  "bin": { "cyanoff-license": "./dist/cli.js" },
+  "main": "./dist/run.js",
+  "types": "./dist/run.d.ts",
+  "files": ["dist", "README.md"],
+  "engines": { "node": ">=20" },
+  "scripts": { "build": "tsc -p . && chmod +x dist/cli.js" },
+  "dependencies": { "@cyanoff/license": "^0.1.0" }
+}
